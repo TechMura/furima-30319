@@ -1,7 +1,7 @@
 class ShippingPeriod < ActiveHash::Base
   self.data = [
-    { id: 1, name: '1~2日で発送' },
-    { id: 2, name: '2~3日で発送' },
-    { id: 3, name: '4~7日で発送' }
+    { id: 1, data: '1~2日で発送' },
+    { id: 2, data: '2~3日で発送' },
+    { id: 3, data: '4~7日で発送' }
   ]
 end
