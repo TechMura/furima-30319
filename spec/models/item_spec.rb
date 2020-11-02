@@ -4,9 +4,17 @@ RSpec.describe Item, type: :model do
   describe '#create' do
     before do
       @item = FactoryBot.build(:item)
+      image_path = Rails.root.join('public/images/test.jpeg')
+      @item.image = fixture_file_upload(image_path)
     end
-    it 'name,explanation,category_id,status,delivery_payment_id,prefecture_id,shipping_period_id,priceがすべてあれば登録できること' do
+    it 'image,name,explanation,category_id,status,delivery_payment_id,prefecture_id,shipping_period_id,priceがすべてあれば登録できること' do
       expect(@item).to be_valid
+    end
+    it 'imageが空なら登録できないこと' do
+      @item.image = nil
+      @item.valid?
+      binding.pry
+      expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it 'nameが空なら登録できないこと' do
       @item.name = ''
