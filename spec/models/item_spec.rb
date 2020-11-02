@@ -13,7 +13,6 @@ RSpec.describe Item, type: :model do
     it 'imageが空なら登録できないこと' do
       @item.image = nil
       @item.valid?
-      binding.pry
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it 'nameが空なら登録できないこと' do
@@ -72,7 +71,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price is not a number')
     end
     it 'priceに全角数字が入っていたら登録できないこと' do
-      @item.price = "３３３"
+      @item.price = '３３３'
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not a number')
     end
