@@ -7,8 +7,8 @@ function Price(){
     const feeObj = document.getElementById("add-tax-price");
     const profitObj = document.getElementById("profit");
     
-    feeObj.innerText = fee
-    profitObj.innerText = profit
+    feeObj.innerText = fee.toLocaleString()
+    profitObj.innerText = profit.toLocaleString()
 
   })
 }
