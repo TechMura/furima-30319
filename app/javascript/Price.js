@@ -1,6 +1,6 @@
 function Price(){
   const itemPriceObj = document.getElementById("item-price");
-  itemPriceObj.addEventListener("keyup",()=> {
+  itemPriceObj.addEventListener("input",()=> {
     const itemPrice = itemPriceObj.value
     const fee = Math.floor(itemPrice * 0.1)
     const profit = itemPrice - fee
@@ -13,4 +13,4 @@ function Price(){
   })
 }
 
-window.addEventListener("load",Price)
+window.addEventListener("load",Price);
