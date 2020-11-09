@@ -1,10 +1,11 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :user_id, :item_id, :token
 
   POSTAL_CODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/.freeze
 
   with_options presence: true do
+    validates :token
     validates :postal_code,   format: {with: POSTAL_CODE_REGEX }
     validates :prefecture_id
     validates :city
