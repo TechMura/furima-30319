@@ -19,6 +19,10 @@ class PurchasesController < ApplicationController
       @purchase_address.save
       redirect_to root_path
     else
+      @purchase_address.postal_code = nil
+      @purchase_address.prefecture_id = nil
+      @purchase_address.city = nil
+      @purchase_address.house_number = nil
       render :index
     end
   end
