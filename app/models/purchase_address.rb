@@ -10,9 +10,9 @@ class PurchaseAddress
     validates :prefecture_id
     validates :city
     validates :house_number
-    validates :building_name
     validates :phone_number,  numericality: { only_integer: true }, length: { maximum: 11 }
   end
+
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
