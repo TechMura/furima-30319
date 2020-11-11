@@ -6,17 +6,15 @@ class PurchaseAddress
 
   with_options presence: true do
     validates :token
-    validates :postal_code,   format: {with: POSTAL_CODE_REGEX }
+    validates :postal_code, format: { with: POSTAL_CODE_REGEX }
     validates :prefecture_id
     validates :city
     validates :house_number
-    validates :phone_number,  numericality: { only_integer: true }, length: { maximum: 11 }
+    validates :phone_number, numericality: { only_integer: true }, length: { maximum: 11 }
   end
-
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number, phone_number: phone_number, purchase_id: purchase.id)
   end
-
 end

@@ -26,9 +26,9 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
     end
     it 'postal_codeが数字だけでは登録できない' do
-      @purchase_address.postal_code = "1234567"
+      @purchase_address.postal_code = '1234567'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Postal code is invalid")
+      expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
     end
     it 'prefecture_idが空だと登録できない' do
       @purchase_address.prefecture_id = nil
@@ -51,14 +51,14 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
     end
     it 'phone_numberに「-」があると登録できない' do
-      @purchase_address.phone_number = "123-456-789"
+      @purchase_address.phone_number = '123-456-789'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Phone number is not a number")
+      expect(@purchase_address.errors.full_messages).to include('Phone number is not a number')
     end
     it 'phone_numberが12文字以上だと登録できない' do
-      @purchase_address.phone_number = "0123456789012"
+      @purchase_address.phone_number = '0123456789012'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      expect(@purchase_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
   end
 end
