@@ -29,7 +29,7 @@ class Prefecture < ActiveHash::Base
     { id: 27, data: '大阪府' },
     { id: 28, data: '兵庫県' },
     { id: 29, data: '奈良県' },
-    { id: 30, name: '和歌山県' },
+    { id: 30, data: '和歌山県' },
     { id: 31, data: '鳥取県' },
     { id: 32, data: '島根県' },
     { id: 33, data: '岡山県' },

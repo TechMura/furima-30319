@@ -13,4 +13,6 @@ function Price(){
   })
 }
 
-window.addEventListener("load",Price);
+if (document.URL.match(/new/)){
+  window.addEventListener("load",Price);
+}
