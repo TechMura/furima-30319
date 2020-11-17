@@ -18,47 +18,47 @@ RSpec.describe PurchaseAddress, type: :model do
     it 'tokenが空だと登録できない' do
       @purchase_address.token = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("クレジットカード情報を入力してください")
     end
     it 'postal_codeが空だと登録できない' do
       @purchase_address.postal_code = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Postal code can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("郵便番号を入力してください")
     end
     it 'postal_codeが数字だけでは登録できない' do
       @purchase_address.postal_code = '1234567'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
+      expect(@purchase_address.errors.full_messages).to include("郵便番号は不正な値です")
     end
     it 'prefecture_idが空だと登録できない' do
       @purchase_address.prefecture_id = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Prefecture can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("都道府県を入力してください")
     end
     it 'cityが空だと登録できない' do
       @purchase_address.city = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("City can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("市区町村を入力してください")
     end
     it 'house_numberが空だと登録できなし' do
       @purchase_address.house_number = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("House number can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("建物名を入力してください")
     end
     it 'phone_numberが空だと登録できない' do
       @purchase_address.phone_number = nil
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("電話番号を入力してください")
     end
     it 'phone_numberに「-」があると登録できない' do
       @purchase_address.phone_number = '123-456-789'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Phone number is not a number')
+      expect(@purchase_address.errors.full_messages).to include("電話番号は数値で入力してください")
     end
     it 'phone_numberが12文字以上だと登録できない' do
       @purchase_address.phone_number = '0123456789012'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+      expect(@purchase_address.errors.full_messages).to include("電話番号は11文字以内で入力してください")
     end
   end
 end
