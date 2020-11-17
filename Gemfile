@@ -77,3 +77,5 @@ group :production do
 end
 
 gem 'payjp'
+
+gem 'rails-i18n'
